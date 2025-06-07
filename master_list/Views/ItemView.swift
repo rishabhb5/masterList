@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct ItemRowView: View {
+struct ItemView: View {
     @Environment(\.modelContext) private var context
     let item: Item
     let showDragHandle: Bool
@@ -20,13 +20,7 @@ struct ItemRowView: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            // Conditionally show drag handle
-            if showDragHandle {
-                Image(systemName: "line.3.horizontal")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 16))
-                    .frame(width: 20)
-            }
+          
             
             Button(action: toggleCompletion) {
                 Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
@@ -50,10 +44,20 @@ struct ItemRowView: View {
                         .font(.system(size: 12, weight: .medium))
                         .foregroundColor(item.category.color)
                 }
+            } /* VStack */
+            
+            Spacer()
+            
+            // Conditionally show drag handle
+            if showDragHandle {
+                Image(systemName: "line.3.horizontal")
+                    .foregroundColor(.gray)
+                    .font(.system(size: 16))
+                    .frame(width: 20)
             }
             
             Spacer()
-        }
+        } /* HStack */
         .padding(.vertical, 4)
         .contentShape(Rectangle())
         .onTapGesture {

@@ -10,9 +10,35 @@
 		1834C2C42DF1E97C0009681A /* master_list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = master_list.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		184F1AA12DF31EBE008A2C3B /* Exceptions for "master_list" folder in "master_list" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/ClaudeOutput1.txt,
+				Resources/resources.txt,
+			);
+			target = 1834C2C32DF1E97C0009681A /* master_list */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		184F1AA22DF31EBE008A2C3B /* Exceptions for "master_list" folder in "Compile Sources" phase from "master_list" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 1834C2C02DF1E97C0009681A /* Sources */;
+			membershipExceptions = (
+				Resources/ClaudeOutput1.txt,
+				Resources/resources.txt,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1834C2EF2DF250B90009681A /* master_list */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				184F1AA12DF31EBE008A2C3B /* Exceptions for "master_list" folder in "master_list" target */,
+				184F1AA22DF31EBE008A2C3B /* Exceptions for "master_list" folder in "Compile Sources" phase from "master_list" target */,
+			);
 			path = master_list;
 			sourceTree = "<group>";
 		};

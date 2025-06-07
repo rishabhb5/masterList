@@ -1,0 +1,7 @@
+
+// https://codewithchris.com/swift-data/
+// https://www.youtube.com/watch?v=krRkm8w22A8&t=9s
+// https://www.youtube.com/watch?v=kLNNNXD8X2U&list=PLvUWi5tdh92wZ5_iDMcBpenwTgFNan9T7
+// UI to View SwiftData SQLite DB: https://www.reddit.com/r/iOSProgramming/comments/1gsvbnl/a_mac_app_for_debugging_swiftdata_databases/
+
+

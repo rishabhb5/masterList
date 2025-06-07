@@ -7,13 +7,13 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             
-            AllListView()
+            ActiveView()
                 .tabItem {
                     Image(systemName: "list.bullet")
-                    Text("All")
+                    Text("Active")
                 }
             
-            CompletedListView()
+            CompletedView()
                 .tabItem {
                     Image(systemName: "checkmark.circle")
                     Text("Completed")
