@@ -4,6 +4,8 @@
 import SwiftUI
 
 struct MainTabView: View {
+    
+    // MARK: - BODY
     var body: some View {
         TabView {
             
@@ -20,8 +22,4 @@ struct MainTabView: View {
                 }
         }
     }
-}
-
-#Preview {
-    MainTabView()
 }

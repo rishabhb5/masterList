@@ -10,20 +10,23 @@ import SwiftData
 
 struct ActiveView: View {
     
+    // MARK: - VARIABLES
     // Insert, Delete, Save (CRUD operations)
     @Environment(\.modelContext) private var context
     
-    // itemList: Fetches data from the DB, updates UI reactively when data changes
+    // var alItemList: Fetches data from the DB, updates UI reactively when data changes
+    // // Querying all Items
     @Query(sort: [SortDescriptor(\Item.sortOrder),
                   SortDescriptor(\Item.createdAt, order:.reverse)]) private var allItemsList:[Item]
     
-    // Filter Active Items (inComplete) in computed property
+    // Filtering for only Active items (isCompleted = false)
     private var activeItemsList: [Item] {
         allItemsList.filter { !$0.isCompleted}
     }
     
     @State private var showingAddSheet: Bool = false
     
+    // MARK: - BODY
     var body: some View {
         NavigationView {
             List {
@@ -36,7 +39,7 @@ struct ActiveView: View {
                     }
                 } else {
                     ForEach(activeItemsList) { item in
-                        ItemView(item: item)
+                        ActiveItemView(item: item)
                     }
                     .onDelete(perform: deleteItem) // Swift handles the index (no need to pass in)
                     .onMove(perform: moveItem) // Swift handles the index (no need to pass in)
@@ -57,7 +60,7 @@ struct ActiveView: View {
         } /*NavigationView*/
     } /* body View */
     
-    // Functions
+    // MARK: - FUNCTIONS
     private func deleteItem(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
@@ -84,13 +87,6 @@ struct ActiveView: View {
         } catch {
             print("Failed to save reordered items: \(error)")
         }
-        
     }
     
 } /* ActiveView View*/
-
-
-
-//#Preview {
-//    ActiveView()
-//}

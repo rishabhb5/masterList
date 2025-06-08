@@ -8,7 +8,9 @@
 import SwiftUI
 import SwiftData
 
-struct ItemView: View {
+struct ActiveItemView: View {
+    
+    // MARK: - VARIABLES
     @Environment(\.modelContext) private var context
     let item: Item
     let showDragHandle: Bool
@@ -18,17 +20,9 @@ struct ItemView: View {
         self.showDragHandle = showDragHandle
     }
     
+    // MARK: - BODY
     var body: some View {
         HStack(spacing: 12) {
-          
-            
-            Button(action: toggleCompletion) {
-                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(item.isCompleted ? .green : .gray)
-                    .font(.system(size: 20))
-            }
-            .buttonStyle(PlainButtonStyle())
-            
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
                     .strikethrough(item.isCompleted)
@@ -60,11 +54,21 @@ struct ItemView: View {
         } /* HStack */
         .padding(.vertical, 4)
         .contentShape(Rectangle())
-        .onTapGesture {
-            toggleCompletion()
-        }
+        .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                   // Swipe from right edge to complete/uncomplete
+                   Button {
+                       toggleCompletion()
+                   } label: {
+                       Label(
+                           "Complete",
+                           systemImage: "checkmark.circle"
+                       )
+                   }
+                   .tint(.green)
+               }
     }
     
+    // MARK: - FUNCTIONS
     private func toggleCompletion() {
         withAnimation {
             item.isCompleted.toggle()
@@ -72,7 +76,3 @@ struct ItemView: View {
         }
     }
 }
-
-//#Preview {
-//    ItemRowView(item: <#Item#>)
-//}

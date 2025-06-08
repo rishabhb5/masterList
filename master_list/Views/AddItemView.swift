@@ -9,6 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct AddItemView: View {
+    
+    // MARK: - VARIABLES
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     
@@ -21,6 +23,7 @@ struct AddItemView: View {
     
     @Query private var existingItems: [Item] // queries all items in the DB
     
+    // MARK: - BODY
     var body: some View {
         NavigationView {
             ScrollView {
@@ -60,6 +63,7 @@ struct AddItemView: View {
         } /* NavigationView */
     } /* body View*/
     
+    // MARK: - FUNCTIONS
     private func saveItem() {
         let newItem = Item(title: itemTitle, category: selectedCategory)
         
@@ -78,7 +82,3 @@ struct AddItemView: View {
     }
    
 } /* AddItemView View */
-
-//#Preview {
-//    AddItemView()
-//}
