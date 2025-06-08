@@ -1,9 +1,5 @@
-//
-//  CompletedItemView.swift
-//  master_list
-//
-//  Created by rishabh b on 6/8/25.
-//
+// 20250608
+// CompletedItemView
 
 import SwiftUI
 import SwiftData
@@ -37,6 +33,19 @@ struct CompletedItemView: View {
                         .foregroundColor(item.category.color)
                 }
             } /* VStack */
+            
+            Spacer()
+            
+            VStack {
+                Text("Created \(item.createdAt.formatted(date: .abbreviated, time: .omitted))")
+                    .font(.system(size: 10))
+                    .foregroundColor(.secondary)
+                Text("Completed \(item.completedAt.formatted(date: .abbreviated, time: .omitted))")
+                    .font(.system(size: 10))
+                    .foregroundColor(.secondary)
+            }
+            
+            
         } /* HStack */
     } /* body View*/
 } /* CompletedItemView */

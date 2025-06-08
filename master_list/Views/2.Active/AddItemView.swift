@@ -1,9 +1,5 @@
-//
-//  AddItemView.swift
-//  master_list
-//
-//  Created by rishabh b on 6/5/25.
-//
+// 20250605
+// AddItemView
 
 import SwiftUI
 import SwiftData

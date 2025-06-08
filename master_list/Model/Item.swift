@@ -1,5 +1,5 @@
-//  20250605
-// Data Model
+// 20250605
+// Item Data Model
 
 // @Model triggers scheme generation
 // transforms the class' stored properties into persisted ones
@@ -14,6 +14,7 @@ class Item {
     var title: String
     var isCompleted: Bool
     var createdAt: Date
+    var completedAt: Date
     var sortOrder: Int
     
     // this is what SwiftData actually stores (primitive types)
@@ -37,7 +38,8 @@ class Item {
     init(title: String, isCompleted: Bool = false, category: ItemCategory = .personal) {
         self.title = title
         self.isCompleted = isCompleted
-        self.createdAt = Date()
+        self.createdAt = Date() // sets date when object is created
+        self.completedAt = Date()
         self.categoryRawValue = category.rawValue
         self.sortOrder = Int(Date().timeIntervalSince1970)
     }

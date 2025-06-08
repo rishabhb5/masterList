@@ -1,9 +1,5 @@
-//
-//  ItemRowView.swift
-//  master_list
-//
-//  Created by rishabh b on 6/5/25.
-//
+// 20250608
+// ActiveItemView
 
 import SwiftUI
 import SwiftData
@@ -25,8 +21,7 @@ struct ActiveItemView: View {
         HStack(spacing: 12) {
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
-                    .strikethrough(item.isCompleted)
-                    .foregroundColor(item.isCompleted ? .gray : .primary)
+                    .foregroundColor(.primary)
                     .font(.system(size: 16, weight: .medium))
                 
                 HStack(spacing: 4) {
@@ -42,15 +37,20 @@ struct ActiveItemView: View {
             
             Spacer()
             
-            // Conditionally show drag handle
-            if showDragHandle {
-                Image(systemName: "line.3.horizontal")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 16))
-                    .frame(width: 20)
+            VStack {
+                Text("Created \(item.createdAt.formatted(date: .abbreviated, time: .omitted))")
+                    .font(.system(size: 10))
+                    .foregroundColor(.secondary)
+                
+                // Conditionally show drag handle
+                if showDragHandle {
+                    Image(systemName: "line.3.horizontal")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 16))
+                        .frame(width: 20)
+                }
             }
-            
-            Spacer()
+           
         } /* HStack */
         .padding(.vertical, 4)
         .contentShape(Rectangle())
@@ -72,6 +72,7 @@ struct ActiveItemView: View {
     private func toggleCompletion() {
         withAnimation {
             item.isCompleted.toggle()
+            item.completedAt = Date()
             try? context.save()
         }
     }
